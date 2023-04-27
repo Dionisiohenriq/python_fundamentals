@@ -1,14 +1,16 @@
+
+palavra_secreta = "banana".lower()
+letras_certas = ["_", "_", "_", "_", "_", "_"]
+erros = 0
+acertou = False
+enforcou = False
+
 def jogar_forca():
 
     print("* " * 10)
     print("Bem vindo ao jogo da forca!")
     print("* " * 10)
 
-    palavra_secreta = "banana".lower()
-    letras_certas = ["_", "_", "_", "_", "_", "_"]
-    erros = 0
-    acertou = False
-    enforcou = False
 
     # início dos palpites
     while not enforcou and not acertou:
@@ -36,12 +38,12 @@ def jogar_forca():
 
 
     if acertou:
-        print("Você ganhou!! :D ")
+        print(f"Você ganhou!! :D\nQtd de erros: {erros}")
     else:
-        print("Você perdeu! :'(")
+        print("Você cometeu 6 erros!\nPerdeu! :'(")
 
     print("Fim do jogo!")
-    
+
 
 if __name__ == "__main__":
     jogar_forca()
