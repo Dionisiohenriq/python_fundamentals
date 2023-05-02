@@ -2,7 +2,6 @@ import datetime
 from program import Program
 
 
-
 class Movie(Program):
     """_summary_
 
@@ -21,7 +20,6 @@ class Movie(Program):
         super().__init__(name, year)
         self.duration = duration
 
-    
     def __str__(self) -> str:
         """_summary_
 

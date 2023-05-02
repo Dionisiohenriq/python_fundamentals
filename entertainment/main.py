@@ -1,4 +1,6 @@
-import movie, serie, playlist
+import movie
+import serie
+import playlist
 
 
 def main():
@@ -19,6 +21,7 @@ def main():
     print(len(weekend_playlist))
 
     [print(program) for program in weekend_playlist]
+
 
 if __name__ == '__main__':
     main()
