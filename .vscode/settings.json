@@ -4,5 +4,6 @@
         "adivinhacao",
         "enforcou",
         "opcao"
-    ]
+    ],
+    "python.linting.enabled": true
 }
