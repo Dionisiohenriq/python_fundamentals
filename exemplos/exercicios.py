@@ -12,25 +12,27 @@ else:
 
 numero = input("Informe um número: ")
 
-n = int(numero)
+if numero.isdigit():
+    numero = int(numero)
+    if numero % 2 == 0:
+        print("Número par")
+    else:
+        print("Número ímpar")
 
-if type(n) is not int:
-    print("O número digitado não é um inteiro")
-elif n % 2 != 0:
-    print("Número ímpar")
-else:
-    print("Número par")
+horario = int(input("Insira uma hora em números inteiros"))
+try:
+    horario = int(horario)
+    if horario >= 0 and horario <= 11:
+        print("Bom dia!")
+    elif horario >= 12 and horario <= 17:
+        print("Boa tarde!")
+    elif horario >= 18 and horario <= 23:
+        print("Boa noite!")
+    else:
+        print("Horário não reconhecido!")
 
-horario = input("Qual a hora atual? ")
-
-h = int(horario)
-
-if h in range(0, 11 + 1):
-    print("Bom dia!")
-elif h in range(12, 17 + 1):
-    print("Boa tarde!")
-else:
-    print("Boa noite!")
+except ValueError:
+    print(f"Você não digitou um inteiro!")
 
 
 nome = input("Insira seu primeiro nome: ")
