@@ -1,5 +1,5 @@
 # python_fundamentals
 
-### python rocks!
+## python rocks
 
-#### Projects of learning process in Python! Feel free to ask anything!
+### Projects of learning process in Python! Feel free to ask anything
