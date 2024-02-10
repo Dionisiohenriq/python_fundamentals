@@ -1,9 +1,7 @@
-
 import random
 
 
 def jogar_forca():
-
     # inicia o jogo da forca
     arquivo = digitar_palavras()
     palavra_secreta = gerar_palavra_secreta(arquivo)
@@ -19,14 +17,11 @@ def jogar_forca():
 
     # início dos palpites
     while opcao:
-        
         chute = input("Qual a letra?").lower().strip()
 
         if chute in palavra_secreta:
-
             index = 0
             for letra in palavra_secreta:
-
                 if chute == letra:
                     print(f"Letra {chute} encontrada no índice: {index}")
                     letras_certas.__setitem__(index, chute)
@@ -46,15 +41,14 @@ def jogar_forca():
 
     opcao = input("Jogar novamente? Digite qualquer tecla ou enter para sair ")
 
+
 print("Fim do jogo!")
 
 
 def digitar_palavras():
-    
     # insere uma qtd de palavras determinada no arquivo para o jogo da forca
 
     with open("palavras.txt", "w") as arquivo:
-        
         qtd_palavras = int(input("Digite a qtd de palavras para a forca: "))
         for i in range(0, qtd_palavras):
             arquivo.write(input("Digite uma palavra"))
@@ -62,16 +56,19 @@ def digitar_palavras():
 
     return arquivo
 
+
 def gerar_palavra_secreta(arquivo: str) -> str:
     # recebe um arquivo com palavras e retorna uma palavra selecionada aleatoriamente do arquivo
-    
+
     palavra_secreta = ""
     with open("palavras.txt", "r") as arquivo:
-
-        palavras = [ linha for linha in arquivo ]
-        palavra_secreta = palavras.__getitem__(random.randint(0, len(palavras)-1)).strip().lower()
+        palavras = [linha for linha in arquivo]
+        palavra_secreta = (
+            palavras.__getitem__(random.randint(0, len(palavras) - 1)).strip().lower()
+        )
 
     return palavra_secreta
+
 
 if __name__ == "__main__":
     jogar_forca()
