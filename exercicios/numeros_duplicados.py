@@ -1,4 +1,4 @@
-lista_de_listas_de_inteiros = [
+list_of_lists_of_integers = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     [9, 1, 8, 9, 9, 7, 2, 1, 6, 8],
     [1, 3, 2, 2, 8, 6, 5, 9, 6, 7],
@@ -13,23 +13,28 @@ lista_de_listas_de_inteiros = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
+def find_first_duplicated(list_of_integers: list) -> int:
+    """_summary_
 
-def encontra_primeiro_duplicado(lista_de_inteiros):
-    numeros_checados = set()
-    primeiro_duplicado = -1
+    Args:
+        list_of_integers (_type_): _description_
 
-    for numero in lista_de_inteiros:
-        if numero in numeros_checados:
-            primeiro_duplicado = numero
+    Returns:
+        _type_: _description_
+    """
+
+    checked_numbers = set()
+    first_duplicated = -1
+
+    for number in list_of_integers:
+        if number in checked_numbers:
+            first_duplicated = number
             break
+    
+        checked_numbers.add(number)
 
-        numeros_checados.add(numero)
-
-    return primeiro_duplicado
-
-
-for lista in lista_de_listas_de_inteiros:
-    print(lista)
-    print(encontra_primeiro_duplicado(lista))
+    return first_duplicated
 
 
+for list in list_of_lists_of_integers:
+    print(list, find_first_duplicated(list))
