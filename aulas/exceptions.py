@@ -1,15 +1,20 @@
 try:
     a = 18
     b = 0    
+    # print('Linha 1'[1000])
     c = a / b
-except ZeroDivisionError as e:
-    print(f'Error when dividing by zero {e}')
+# except ZeroDivisionError as e:
+#     print(f'Error when dividing by zero {e}')
 except NameError as e:
     print(f'Erro, variable not found {e}')
 except (TypeError, IndexError) as e:
-    print(f'TypeError {e}')
+    print('TypeError or IndexError')
+    print(f'MSG: {e}')
+    print(f'Nome: {e.__class__.__name__}')
 except Exception as e:
-    print(f'Error {e}')
+    print('Exception:')
+    print(f'Error: {e.__class__.__name__}:')
+    print(f'{e}')
 print('Fim')
 
 
