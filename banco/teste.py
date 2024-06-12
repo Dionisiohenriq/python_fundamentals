@@ -2,6 +2,7 @@ import decimal
 
 # conta methods ## procedural fashion ##
 
+
 def create(number: int, owner: str, balance: decimal, limit: decimal) -> dict:
     """_summary_
 
@@ -14,12 +15,7 @@ def create(number: int, owner: str, balance: decimal, limit: decimal) -> dict:
     Returns:
         dict: dict of account
     """
-    account = {
-        "number": number,
-        "owner": owner,
-        "balance": balance,
-        "limit": limit
-          }    
+    account = {"number": number, "owner": owner, "balance": balance, "limit": limit}
     return account
 
 

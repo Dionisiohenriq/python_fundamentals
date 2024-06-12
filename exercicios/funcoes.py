@@ -11,3 +11,4 @@ multiplicar = int(input("Insira um multiplicador:"))
 
 duplicar = multiplicador(multiplicar)
 print(duplicar(num))
+teste   
