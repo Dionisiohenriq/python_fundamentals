@@ -1,9 +1,10 @@
 from typing import Union
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, Request, WebSocket, BackgroundTasks
 from pydantic import BaseModel
+from strawberry.fastapi import GraphQLRouter
+from schema import schema
 
-
-app = FastAPI("")
+app = FastAPI()
 
 class Item(BaseModel):
     """_summary_
@@ -49,3 +50,18 @@ def update_item(item_id: int, item: Item):
         _type_: _description_
     """
     return {"item_price": item.price, "item_id": item_id, "item_name": item.name}
+
+def custom_context_dependency() -> str:
+    return "John"
+
+async def get_context(
+    custom_value=Depends(custom_context_dependency),
+):
+    return {
+        "custom_value": custom_value
+    }
+
+graphql_app = GraphQLRouter(schema,
+                            context_getter=get_context)
+
+app.include_router(graphql_app, prefix="/graphql")
