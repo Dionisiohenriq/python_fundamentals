@@ -6,6 +6,7 @@ from schema import schema
 
 app = FastAPI()
 
+
 class Item(BaseModel):
     """_summary_
 
@@ -15,7 +16,8 @@ class Item(BaseModel):
     name: str
     price: float
     is_offer: Union[bool, None] = None
-    
+
+
 @app.get("/")
 async def read_rood():
     """_summary_
@@ -23,7 +25,8 @@ async def read_rood():
     Returns:
         _type_: _description_
     """
-    return {"Hello" : "World"}
+    return {"Hello": "World"}
+
 
 @app.get("/items/{item_id}")
 async def read_item(item_id: int, q: Union[str, None] = None) -> object:
@@ -38,6 +41,7 @@ async def read_item(item_id: int, q: Union[str, None] = None) -> object:
     """
     return {"item_id": item_id, "q": q}
 
+
 @app.put("/items/{item_id}")
 def update_item(item_id: int, item: Item):
     """_summary_
@@ -51,15 +55,18 @@ def update_item(item_id: int, item: Item):
     """
     return {"item_price": item.price, "item_id": item_id, "item_name": item.name}
 
+
 def custom_context_dependency() -> str:
     return "John"
 
+
 async def get_context(
-    custom_value=Depends(custom_context_dependency),
+        custom_value=Depends(custom_context_dependency),
 ):
     return {
         "custom_value": custom_value
     }
+
 
 graphql_app = GraphQLRouter(schema,
                             context_getter=get_context)
