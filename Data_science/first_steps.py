@@ -28,6 +28,3 @@ print(base_credit.iloc[base_credit['loan_amnt'].argmin()])
 print(np.unique(base_credit['loan_status'], return_counts=True))
 
 
-
-
-

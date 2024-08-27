@@ -6,7 +6,6 @@ from schema import schema
 
 app = FastAPI()
 
-
 class Item(BaseModel):
     """_summary_
 
