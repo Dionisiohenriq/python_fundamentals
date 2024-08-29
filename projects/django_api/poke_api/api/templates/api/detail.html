@@ -1,0 +1,13 @@
+<form action="{% url 'api:vote' pokemon.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1> {{ pokemon.pokemon_name }} </h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+    {% for trainer in pokemon.trainers_set.all %}
+        <input type="radio" name="trainer" id="trainer{{ forloop.counter }}" value="{{ trainer.id }}">
+        <label for="trainer{{ forloop.counter }}">{{ trainer.trainer_name }}</label>
+    <br/>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Vote">
+</form>

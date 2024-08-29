@@ -1,0 +1,9 @@
+<h1>{{ pokemon.pokemon_name }}</h1>
+
+<ul>
+{% for trainer in pokemon.trainers_set.all %}
+    <li>{{ trainer.trainer_name }} -- {{ trainer.votes }} vote{{ trainer.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'api:detail' pokemon.id %}">Vote again?</a>

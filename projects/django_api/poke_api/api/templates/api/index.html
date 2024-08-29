@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokémon</title>
+		<style>
+			a {
+                font-wight: 300;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Pokémons</h3>
+		{% if latest_pokemon_list %}
+		<ul>
+			{% for pokemon in latest_pokemon_list %}
+			<li>
+				<a href="{% url 'api:detail' pokemon.id %}">{{ pokemon.pokemon_name }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>No polls are available.</p>
+		{% endif %}
+	</body>
+</html>
